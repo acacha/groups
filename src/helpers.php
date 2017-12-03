@@ -16,18 +16,19 @@ use GuzzleHttp\Client as HttpClient;
 if (! function_exists('initialize_groups_management_permissions')) {
 
     /**
-     * Initialize staff management permissions and roles.
+     * Initialize groups management permissions and roles.
      */
     function initialize_groups_management_permissions()
     {
         //ROLES
-//        $manageForge = role_first_or_create('manage-forge');
+        $manageGroups = role_first_or_create('groups-manager');
 
-        //MANAGE FORGE ROLE
-//        permission_first_or_create('list-user-servers');
+        permission_first_or_create('store-group');
+        permission_first_or_create('assign-user-to-group');
 
-//        give_permission_to_role($manageForge, 'list-user-servers');
+        give_permission_to_role($manageGroups, 'store-group');
+        give_permission_to_role($manageGroups, 'assign-user-to-group');
 
-//        app(PermissionRegistrar::class)->registerPermissions();
+        app(PermissionRegistrar::class)->registerPermissions();
     }
 }

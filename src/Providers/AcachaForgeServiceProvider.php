@@ -67,7 +67,7 @@ class AcachaGroupsServiceProvider extends ServiceProvider
      */
     protected function defineApiRoutes()
     {
-        $this->app->make('router')->prefix('api')->middleware('api')
+        $this->app->make('router')->prefix('api')->middleware(['api','bindings','throttle'])
             ->namespace(AcachaGroupsServiceProvider::NAMESPACE)
             ->group(ACACHA_GROUPS_PATH .'/routes/api.php');
     }
