@@ -24,7 +24,7 @@ class CreateGroupsTable extends Migration
 
         Schema::create('groupables', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id');
+            $table->integer('group_id')->unsigned();
             $table->morphs('groupable');
 
             $table->timestamps();
