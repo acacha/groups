@@ -23,7 +23,7 @@ class APIUserGroupsControllerTest extends TestCase
     {
         parent::setUp();
         initialize_groups_management_permissions();
-        $this->withoutExceptionHandling();
+//        $this->withoutExceptionHandling();
 
     }
 

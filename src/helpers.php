@@ -23,10 +23,18 @@ if (! function_exists('initialize_groups_management_permissions')) {
         //ROLES
         $manageGroups = role_first_or_create('groups-manager');
 
+        permission_first_or_create('list-groups');
+        permission_first_or_create('show-group');
         permission_first_or_create('store-group');
+        permission_first_or_create('update-group');
+        permission_first_or_create('destroy-group');
         permission_first_or_create('assign-user-to-group');
 
+        give_permission_to_role($manageGroups, 'list-groups');
+        give_permission_to_role($manageGroups, 'show-group');
         give_permission_to_role($manageGroups, 'store-group');
+        give_permission_to_role($manageGroups, 'update-group');
+        give_permission_to_role($manageGroups, 'destroy-group');
         give_permission_to_role($manageGroups, 'assign-user-to-group');
 
         app(PermissionRegistrar::class)->registerPermissions();

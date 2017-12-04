@@ -34,7 +34,12 @@ class AuthenticatedURLSTest extends TestCase
     public function authenticatedURIs()
     {
         return [
+            ['get','/api/v1/group'],
+            ['get','/api/v1/group/1'],
             ['post','/api/v1/group'],
+            ['put','/api/v1/group/1'],
+            ['delete','/api/v1/group/1'],
+
             ['post','/api/v1/group/1/user/1'],
         ];
     }
